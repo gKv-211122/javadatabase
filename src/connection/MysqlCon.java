@@ -25,7 +25,7 @@ public class MysqlCon {
 			}
 			con.close();  
 			}catch(Exception e) { 
-				
+				 
 				System.out.println(e);
 			}  
 
