@@ -43,23 +43,38 @@ public class CreateTableUsingPrepSt {
 //			System.out.println("Table is create Successfully.....");
 			
 			String query = "INSERT INTO details (id, name, location)" + "VALUES (?, ?, ?)";
-			//PreparedStatement pstmt = con.prepareStatement(query);
+			PreparedStatement pstmt = con.prepareStatement(query);
 			
-//			pstmt.setInt(1, 1345);
-//			pstmt.setString(2, "ABD");
-//			pstmt.setString(3, "Hydarabad, Gachibowli");
+			pstmt.setInt(1, 1396);
+			pstmt.setString(2, "golu");
+			pstmt.setString(3, "Hydarabad");
+			pstmt.execute();
 			
+			System.out.println("Data Successfully Inserted.....");
+			
+			
+			/** read data */
+			// String readQuery = "select * from details";
+			PreparedStatement pstmtr = con.prepareStatement("select * from details");
+			
+			ResultSet rs=pstmtr.executeQuery();  
+			
+			while(rs.next())  {
+				
+				System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));  
+			}
 			
 			// pstmt.executeUpdate();
 			
-			System.out.println("Enter Your id: ");
-			int id = sc.nextInt();
+//			System.out.println("Enter Your id: ");
+//			int id = sc.nextInt();
+//			
+//			String queryDel = "delete from details where id='" + id + "'";
+//			PreparedStatement pstmt1 = con.prepareStatement(queryDel);
+//			pstmt1.execute();
+//			
+//			System.out.println("Deleted Successfully.....");
 			
-			String queryDel = "delete from details where id='" + id + "'";
-			PreparedStatement pstmt = con.prepareStatement(queryDel);
-			pstmt.execute();
-			
-			System.out.println("Deleted Successfully.....");
 			
 			
 			
